@@ -5,8 +5,7 @@ import SignUp from "./Components/SignUp";
 function App() {
 	return (
 		<Fragment>
-			
-			<SignIn />
+			<SignUp />
 		</Fragment>
 	);
 }

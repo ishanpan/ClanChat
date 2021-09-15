@@ -63,6 +63,11 @@ body {
 	text-indent: 1rem;
 }
 
+.forminput:focus {
+	outline: none;
+	border: #505050 solid 2px;
+}
+
 .submitbtn {
 	font-size: 2rem;
 	margin-top: 2rem;
@@ -91,7 +96,7 @@ body {
 	font-family: Karla;
 	font-style: normal;
 	font-weight: 600;
-	color: 	#505050;
+	color: #505050;
 }
 
 .login {
