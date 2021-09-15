@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
+.ui_screen {
+  width: 50vw;
+  background-color: blue; }
