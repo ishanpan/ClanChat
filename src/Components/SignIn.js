@@ -2,8 +2,10 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import styles from "./SignUp.module.css";
+import { useSelector, useDispatch } from "react-redux";
 
 const SignIn = () => {
+	const dispatch = useDispatch();
 	const formik = useFormik({
 		initialValues: {
 			firstName: "",

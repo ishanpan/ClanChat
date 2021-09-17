@@ -1,13 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 import App from "./App";
 import { ChakraProvider } from "@chakra-ui/react";
+import store from "./store/store";
 
 ReactDOM.render(
-	<React.StrictMode>
-		<ChakraProvider>
+	<ChakraProvider>
+		<Provider store={store}>
 			<App />
-		</ChakraProvider>
-	</React.StrictMode>,
+		</Provider>
+	</ChakraProvider>,
 	document.getElementById("root")
 );

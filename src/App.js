@@ -2,6 +2,8 @@ import { Fragment } from "react";
 
 import SignUp from "./Components/SignUp";
 
+
+
 function App() {
 	return (
 		<Fragment>

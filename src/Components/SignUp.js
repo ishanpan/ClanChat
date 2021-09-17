@@ -4,9 +4,13 @@ import * as Yup from "yup";
 import styles from "./SignUp.module.css";
 import config from "./config";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { useSelector, useDispatch } from "react-redux";
+import { login, logout } from "../store/authSlice";
 
 const SignUp = () => {
 	const auth = getAuth();
+	let count = useSelector((state) => state.auth.loggedin);
+	const dispatch = useDispatch();
 	const formik = useFormik({
 		initialValues: {
 			password: "",
@@ -30,6 +34,7 @@ const SignUp = () => {
 					const user = userCredential.user;
 					//Create a store and save this in local browser storge
 					// ...
+					dispatch(login());
 				})
 				.catch((error) => {
 					const errorCode = error.code;
