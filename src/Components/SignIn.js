@@ -27,12 +27,9 @@ const SignIn = () => {
 		onSubmit: (values) => {
 			signInWithEmailAndPassword(auth, values.email, values.password)
 				.then((userCredential) => {
-					// Signed in
 					const user = userCredential.user;
 					dispatch(login());
-					dispatch(loginUser(user.email));
-					console.log(userData);
-					// ...
+					dispatch(loginUser(user.uid));
 				})
 				.catch((error) => {
 					const errorCode = error.code;
