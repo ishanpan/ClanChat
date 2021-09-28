@@ -12,7 +12,9 @@ const Name = () => {
 		validationSchema: Yup.object({
 			name: Yup.string().required("Incomplete form"),
 		}),
-		onSubmit: (values) => {},
+		onSubmit: (values) => {
+			console.log("YEllo");
+		},
 	});
 	return (
 		<div className={styles.form}>
@@ -24,7 +26,7 @@ const Name = () => {
 						className={styles.forminput}
 						id="email"
 						name="email"
-						type="email"
+						type="text"
 						onChange={formik.handleChange}
 						onBlur={formik.handleBlur}
 						value={formik.values.email}

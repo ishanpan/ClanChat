@@ -13,7 +13,7 @@ function App() {
 	let logg = useSelector((state) => state.auth.loggedin);
 	return (
 		<Fragment>
-			<Chat></Chat>
+			<Name></Name>
 		</Fragment>
 	);
 }
