@@ -41,7 +41,7 @@ const SignIn = () => {
 	return (
 		<div className={styles.form}>
 			<form className={styles.inputs} onSubmit={formik.handleSubmit}>
-				<div className={styles.formheading}>ClanChat</div>
+				<div className={styles.formheading}>LetGo</div>
 
 				<div className={styles.formlabin}>
 					<input

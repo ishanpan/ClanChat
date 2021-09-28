@@ -17,7 +17,7 @@ const Name = () => {
 	return (
 		<div className={styles.form}>
 			<form className={styles.inputs} onSubmit={formik.handleSubmit}>
-				<div className={styles.formheading}>Set A NickName</div>
+				<div className={styles.formheading}>Set A Nickname</div>
 
 				<div className={styles.formlabin}>
 					<input

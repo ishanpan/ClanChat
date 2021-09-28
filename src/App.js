@@ -5,11 +5,15 @@ import SignIn from "./Components/SignIn";
 import { useSelector } from "react-redux";
 import Welcome from "./Components/Welcome";
 import Name from "./Components/Name";
+import Chat from "./Components/Chat";
+
+//Work on storing chats to firebase then later migrate it to a backend
+
 function App() {
 	let logg = useSelector((state) => state.auth.loggedin);
 	return (
 		<Fragment>
-			<Name></Name>
+			<Chat></Chat>
 		</Fragment>
 	);
 }
