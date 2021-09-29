@@ -1,25 +1,28 @@
 import { Fragment } from "react";
 import styles from "./Welcome.module.css";
+
 import homeSVG from "../static/home-outline.svg";
 import chatSVG from "../static/chatbubbles-outline.svg";
 import settingsSVG from "../static/settings-outline.svg";
-const Welcome = (props) => {
+import pf from "../static/sponge.PNG";
+
+const Sidenav = () => {
 	return (
 		<Fragment>
-			<div className={styles.items}>
-				<div className={styles.nav}>
-					<img src={homeSVG} className={styles.iconChat} alt="Icon chat" />
+			<div className={styles.nav}>
+				<img src={pf} className={styles.pf} alt="profile pic" />
+				<a href="#">
+					<img src={homeSVG} className={styles.iconChat} alt="Icon chat"></img>
+				</a>
+				<a href="#">
 					<img src={chatSVG} className={styles.iconChat} alt="Icon chat" />
+				</a>
+				<a href="#">
 					<img src={settingsSVG} className={styles.iconChat} alt="Icon chat" />
-				</div>
-				<div className={styles.textitems}>
-					<div>👋</div>
-					<div>Hello, {props.nickname} </div>
-					<div>Click chat icon to start chatting</div>
-				</div>
+				</a>
 			</div>
 		</Fragment>
 	);
 };
 
-export default Welcome;
+export default Sidenav;

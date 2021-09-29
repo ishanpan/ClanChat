@@ -30,7 +30,7 @@ body {
 	width: 10vw;
 	background-color: #246eb9;
 	margin-left: 2rem;
-	border-radius: 3rem;
+	border-radius: 2rem;
 }
 .textitems {
 	color: white;
@@ -46,10 +46,19 @@ body {
 .nav {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
+	justify-content: center;
 	align-items: center;
 }
+
+.pf {
+	height: 9rem;
+	width: 9rem;
+	margin-bottom: 8rem;
+	border-radius: 50%;
+}
 .iconChat {
-	height: 6rem;
-	
+	height: 5.5rem;
+
+	margin: 2.5rem;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }

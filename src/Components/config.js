@@ -26,7 +26,7 @@ const app = initializeApp(firebaseConfig);
 export { app };
 
 
-/*1. set firestore to send data to firestore. start with nickname
+/*1. set firestore to send data to firestore. start with nickname -> Done
 2. Design UI For Chatting
 3. set realtime database with offline support
 
