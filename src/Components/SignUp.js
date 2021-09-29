@@ -32,7 +32,7 @@ const SignUp = () => {
 					// Signed in
 
 					const user = userCredential.user;
-					//Create a store and save this in local browser storge
+					//Create a store and save this in local browser storage
 					// ...
 					dispatch(login());
 				})
