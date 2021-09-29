@@ -26,5 +26,4 @@ node_modules/
 #env
 ./src/Components/config.js
 
-#notes
-./clanchat/TODO.txt
+
