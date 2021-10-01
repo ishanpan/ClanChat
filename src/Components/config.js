@@ -30,9 +30,8 @@ export { app };
 2. Design UI For Chatting
 3. set realtime database with offline support
 
-NOTES-> Encrypted chats would be fun
-        One on One or Group???
-        Will have to think this 
-        Could use home UI for welcoming user 
-        Settings icon for changing password
+NOTES-> Encrypted chats would be fun.
+        One on One or Group??? Will have to think this.
+        Could use home UI for welcoming user  -> Done
+        Settings icon for changing password.
 		*/

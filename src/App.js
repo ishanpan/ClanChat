@@ -11,7 +11,7 @@ function App() {
 	let logg = useSelector((state) => state.auth.userInfo);
 	return (
 		<Fragment>
-			<Hello nickname={logg} />
+			<Chat />
 		</Fragment>
 	);
 }
