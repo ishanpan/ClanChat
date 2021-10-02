@@ -6,10 +6,10 @@ import { ChakraProvider } from "@chakra-ui/react";
 import store from "./store/store";
 
 ReactDOM.render(
-	<ChakraProvider>
-		<Provider store={store}>
-			<App />
-		</Provider>
-	</ChakraProvider>,
-	document.getElementById("root")
+  <ChakraProvider>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </ChakraProvider>,
+  document.getElementById("root")
 );
