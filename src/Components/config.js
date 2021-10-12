@@ -24,6 +24,7 @@ export { app };
 2. Design UI For Chatting
 3. Design DB structure 
 4. set realtime database with offline support
+5. Adding text search
 
 NOTES-> Encrypted chats would be fun.
         One on One or Group??? Will have to think this.
