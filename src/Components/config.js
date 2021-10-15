@@ -21,10 +21,15 @@ const app = initializeApp(firebaseConfig);
 export { app };
 
 /*1. set firestore to send data to firestore. start with nickname -> Done
-2. Design UI For Chatting
-3. Design DB structure 
-4. set realtime database with offline support
-5. Adding text search
+2. Design UI For Chatting -> Done
+3. Design DB structure  -> Done
+4. Implement sending text 
+and retriving texts. 
+Dyanmically rerender the list
+
+additonal features i can work on
+ set realtime database with offline support
+Adding text search
 
 NOTES-> Encrypted chats would be fun.
         One on One or Group??? Will have to think this.

@@ -8,11 +8,11 @@ import Name from "./Components/Name";
 import Chat from "./Components/Chat";
 
 function App() {
-	let logg = useSelector((state) => state.auth.userInfo);
-	return (
-		<Fragment>
-			<Chat />
-		</Fragment>
-	);
+  let logg = useSelector((state) => state.auth.userInfo);
+  return (
+    <Fragment>
+      <Chat />
+    </Fragment>
+  );
 }
 export default App;
