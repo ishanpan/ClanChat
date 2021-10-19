@@ -26,10 +26,12 @@ export { app };
 4. Implement sending text -> Done
 and retriving texts. 
 Dyanmically rerender the list -> Done
+5. React routing
+6. Add info when logged in and when msg send and by whom with time
+7. Add animations
 
-additonal features i can work on
- set realtime database with offline support -> real time done
-Adding text search
+
+
 
 NOTES-> Encrypted chats would be fun.
         One on One or Group??? Will have to think this.

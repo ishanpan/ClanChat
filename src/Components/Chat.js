@@ -1,25 +1,32 @@
+import { useState, useEffect, useRef, Fragment } from "react";
+
 import styles from "./Welcome.module.css";
+
 import Sidenav from "./Sidenav";
-import { Fragment } from "react";
-import { PaperPlaneRight } from "phosphor-react";
+
 import { useFormik } from "formik";
 import * as Yup from "yup";
+
 import pf from "../static/sponge.PNG";
 import call from "../static/call-outline.svg";
-import send from "../static/send-sharp.svg";
-import { addDoc } from "firebase/firestore";
+import { PaperPlaneRight } from "phosphor-react";
+
 import { app } from "./config";
 import { getFirestore } from "firebase/firestore";
 import { useSelector } from "react-redux";
-import stylesas from "./TextWindow.module.css";
-import { collection, query, getDocs, orderBy, limit } from "firebase/firestore";
-import { useState, useEffect, useRef } from "react";
-import { doc, onSnapshot } from "firebase/firestore";
+import {
+	addDoc,
+	collection,
+	query,
+	orderBy,
+	onSnapshot,
+} from "firebase/firestore";
 
 const Chat = (props) => {
 	const [data, setData] = useState([{}]);
 	const [load, setLoad] = useState(0);
 	const messageRef = useRef();
+
 	let logg = useSelector((state) => state.auth.userInfo);
 	useEffect(() => {
 		const a = async () => {
@@ -50,8 +57,9 @@ const Chat = (props) => {
 	}, [data]);
 
 	useEffect(() => {
-		console.log("unloaded");
-		setLoad((state) => !state);
+		data.forEach((s) => {
+			console.log(s);
+		});
 	}, [data]);
 
 	//can create a custom hook i think
@@ -92,24 +100,22 @@ const Chat = (props) => {
 							<img src={call} className={styles.callIcon} alt="Call icon"></img>
 						</a>
 					</div>
+
 					<div className={styles.textWindow}>
 						<ul className={styles.textWindowArea} ref={messageRef}>
-							{data.map((text) => (
-								<div
+							{data.filter((text)=>Object.keys(text).length !== 0).map((text) => (
+								<li
 									className={styles.chatBubble}
 									style={{
-										marginLeft:
-											text.msg ===
-											"bye"
-												? `auto`
-												: "",
+										marginLeft: text.msg === "bye" ? `auto` : "",
 									}}
 								>
 									<p className={styles.chatBubbleText}>{text.msg}</p>
-								</div>
+								</li>
 							))}
 						</ul>
 					</div>
+
 					<div className={styles.sendMsg}>
 						<form onSubmit={formik.handleSubmit} className={styles.bottom}>
 							<input
