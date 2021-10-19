@@ -23,12 +23,12 @@ export { app };
 /*1. set firestore to send data to firestore. start with nickname -> Done
 2. Design UI For Chatting -> Done
 3. Design DB structure  -> Done
-4. Implement sending text 
+4. Implement sending text -> Done
 and retriving texts. 
-Dyanmically rerender the list
+Dyanmically rerender the list -> Done
 
 additonal features i can work on
- set realtime database with offline support
+ set realtime database with offline support -> real time done
 Adding text search
 
 NOTES-> Encrypted chats would be fun.

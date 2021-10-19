@@ -1,136 +1,169 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@300;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
 
 * {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html,
 body {
-  box-sizing: border-box;
-  margin: 0;
-  font-size: 62.5%;
+	box-sizing: border-box;
+	margin: 0;
+	font-size: 62.5%;
 }
 
 .items {
-  height: 100vh;
-  display: flex;
-  background-color: #3c3744;
-  align-items: center;
+	height: 100vh;
+	display: flex;
+	background-color: #3c3744;
+	align-items: center;
 }
 
 .nav {
-  height: 90vh;
-  width: 10vw;
-  background-color: #1a66ff;
-  margin-left: 2rem;
-  border-radius: 2rem;
+	height: 90vh;
+	width: 10vw;
+	background-color: #1a66ff;
+	margin-left: 2rem;
+	border-radius: 2rem;
 }
 .textitems {
-  color: white;
-  font-size: 4rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
-  width: 50%;
-  transform: translate(0%, -10%);
+	color: white;
+	font-size: 4rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: auto;
+	width: 50%;
+	transform: translate(0%, -10%);
 }
 
 .nav {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .pf {
-  height: 9rem;
-  width: 9rem;
-  margin-bottom: 8rem;
-  border-radius: 50%;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	height: 9rem;
+	width: 9rem;
+	margin-bottom: 8rem;
+	border-radius: 50%;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .iconChat {
-  height: 5.5rem;
-  margin: 2.5rem;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
+	height: 5.5rem;
+	margin: 2.5rem;
+	box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
 }
 
 .chatWindow {
-  height: 90vh;
-  width: 82vw;
-  background-color: black;
-  border-radius: 2rem;
-  margin-left: 5rem;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	height: 90vh;
+	width: 82vw;
+	background-color: black;
+	border-radius: 2rem;
+	margin-left: 5rem;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .header {
-  display: flex;
-  border-bottom: lightblue 0.2rem solid;
-  align-items: center;
-  justify-content: space-between;
-  width: 72vw;
+	display: flex;
+	border-bottom: lightblue 0.2rem solid;
+	align-items: center;
+	justify-content: space-between;
+	width: 72vw;
 }
 
 .header__pf {
-  height: 5rem;
-  width: 5rem;
-  border-radius: 50%;
-  margin-left: 3rem;
-  margin: 2rem;
-  border-radius: 2rem;
+	height: 5rem;
+	width: 5rem;
+	border-radius: 50%;
+	margin-left: 3rem;
+	margin: 2rem;
+	border-radius: 2rem;
 }
 
 .header__name {
-  color: white;
-  font-size: 3rem;
-  margin: 1rem;
-  margin-top: 2rem;
+	color: white;
+	font-size: 3rem;
+	margin: 1rem;
+	margin-top: 2rem;
 }
 
 .callIcon {
-  height: 3.5rem;
-  width: 3.5rem;
-  margin-right: 4rem;
+	height: 3.5rem;
+	width: 3.5rem;
+	margin-right: 4rem;
 }
 
 .textWindow {
-  height: 70vh;
+	height: 70vh;
+	overflow: scroll;
+}
+
+.textWindow::-webkit-scrollbar {
+	display: none;
 }
 
 .sendMsg {
-  height: 12vh;
-  width: 68vw;
-  border-top: 0.2rem #246eb9 solid;
-  display: flex;
-  align-items: center;
+	height: 12vh;
+	width: 68vw;
+	border-top: 0.2rem #246eb9 solid;
+	display: flex;
+	align-items: center;
 }
 
 .textInput {
-  height: 4rem;
-  width: 64vw;
-  background-color: #1d3370;
-  color: white;
-  font-size: 2rem;
-  border-radius: 1.5rem;
-  text-indent: 1.2rem;
+	height: 4rem;
+	width: 64vw;
+	background-color: #1d3370;
+	color: white;
+	font-size: 2rem;
+	border-radius: 1.5rem;
+	text-indent: 1.2rem;
 }
 .sendIcon {
-  margin-left: 2rem;
-  color: white;
+	margin-left: 2rem;
+	color: white;
 }
 
 .bottom {
-  display: flex;
+	display: flex;
+}
+
+.textWindowArea {
+	display: grid;
+
+	width: 70vw;
+}
+
+.chatBubble {
+	color: white;
+	background-color: #1a66ff;
+	margin: 1.5rem;
+	min-height: 2.5rem;
+	min-width: 2rem;
+	overflow: hidden;
+	border-radius: 1.5rem;
+	justify-self: start;
+}
+
+.chatBubbleText {
+	font-family: "Noto Sans", sans-serif;
+	text-align: center;
+	font-size: 2rem;
+	min-width: 2rem;
+	margin: 1rem;
+	margin-left: 1.25rem;
+	margin-right: 1.25rem;
 }
