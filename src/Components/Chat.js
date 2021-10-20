@@ -15,7 +15,6 @@ import { PaperPlaneRight } from "phosphor-react";
 import { app } from "./config";
 import { getFirestore } from "firebase/firestore";
 
-
 import {
 	addDoc,
 	collection,
@@ -105,16 +104,18 @@ const Chat = (props) => {
 
 					<div className={styles.textWindow}>
 						<ul className={styles.textWindowArea} ref={messageRef}>
-							{data.filter((text)=>Object.keys(text).length !== 0).map((text) => (
-								<li
-									className={styles.chatBubble}
-									style={{
-										marginLeft: text.msg === "bye" ? `auto` : "",
-									}}
-								>
-									<p className={styles.chatBubbleText}>{text.msg}</p>
-								</li>
-							))}
+							{data
+								.filter((text) => Object.keys(text).length !== 0)
+								.map((text) => (
+									<li
+										className={styles.chatBubble}
+										style={{
+											marginLeft: text.msg === "bye" ? `auto` : "",
+										}}
+									>
+										<p className={styles.chatBubbleText}>{text.msg}</p>
+									</li>
+								))}
 						</ul>
 					</div>
 
@@ -131,6 +132,7 @@ const Chat = (props) => {
 								placeholder="Type a message"
 								autoComplete="off"
 							/>
+
 							<button type="submit">
 								<PaperPlaneRight className={styles.sendIcon} size={40} />
 							</button>
