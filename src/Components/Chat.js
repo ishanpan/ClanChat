@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, Fragment } from "react";
+import { useSelector } from "react-redux";
 
 import styles from "./Welcome.module.css";
 
@@ -13,7 +14,8 @@ import { PaperPlaneRight } from "phosphor-react";
 
 import { app } from "./config";
 import { getFirestore } from "firebase/firestore";
-import { useSelector } from "react-redux";
+
+
 import {
 	addDoc,
 	collection,

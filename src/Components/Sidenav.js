@@ -11,10 +11,10 @@ const Sidenav = () => {
 		<Fragment>
 			<div className={styles.nav}>
 				<img src={pf} className={styles.pf} alt="profile pic" />
-				<a href="#">
+				<a href="/welcome">
 					<img src={homeSVG} className={styles.iconChat} alt="Icon chat"></img>
 				</a>
-				<a href="#">
+				<a href="/chat">
 					<img src={chatSVG} className={styles.iconChat} alt="Icon chat" />
 				</a>
 				<a href="#">
