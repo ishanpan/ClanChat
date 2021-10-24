@@ -15,6 +15,9 @@ import { PaperPlaneRight } from "phosphor-react";
 import { app } from "./config";
 import { getFirestore } from "firebase/firestore";
 
+import { css } from "@emotion/react";
+import PacmanLoader from "react-spinners/PacmanLoader";
+
 import {
 	addDoc,
 	collection,
@@ -27,7 +30,18 @@ const Chat = (props) => {
 	const [data, setData] = useState([{}]);
 	const [load, setLoad] = useState(0);
 	const messageRef = useRef();
+	let [loading, setLoading] = useState(true);
+	let [color, setColor] = useState("#B8B3E9");
 
+	const override = css`
+		display: block;
+		margin: 2 auto;
+		border-color: red;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -60%);
+	`;
 	let logg = useSelector((state) => state.auth.userInfo);
 	useEffect(() => {
 		const a = async () => {
@@ -37,6 +51,7 @@ const Chat = (props) => {
 			);
 
 			const subscribe = onSnapshot(q, (snapshot) => {
+				setLoad(1);
 				snapshot.docChanges().forEach((change) => {
 					if (change.type === "added") {
 						setData((state) => [...state, change.doc.data()]);
@@ -55,12 +70,7 @@ const Chat = (props) => {
 				inline: "nearest",
 			});
 		}
-	}, [data]);
-
-	useEffect(() => {
-		data.forEach((s) => {
-			console.log(s);
-		});
+		//console.log(logg);
 	}, [data]);
 
 	//can create a custom hook i think
@@ -83,7 +93,6 @@ const Chat = (props) => {
 					msg: `${values.msg}`,
 					timestamp: `${t}`,
 				});
-				console.log("HELLO");
 			}
 			sendMsg();
 		},
@@ -103,6 +112,12 @@ const Chat = (props) => {
 					</div>
 
 					<div className={styles.textWindow}>
+						<PacmanLoader
+							color={color}
+							loading={!load}
+							css={override}
+							size={25}
+						/>
 						<ul className={styles.textWindowArea} ref={messageRef}>
 							{data
 								.filter((text) => Object.keys(text).length !== 0)

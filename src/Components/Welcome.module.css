@@ -109,6 +109,7 @@ body {
 .textWindow {
 	height: 70vh;
 	overflow: scroll;
+	position: relative;
 }
 
 .textWindow::-webkit-scrollbar {

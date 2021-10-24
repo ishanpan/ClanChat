@@ -33,20 +33,19 @@ const SignIn = () => {
 			signInWithEmailAndPassword(auth, values.email, values.password)
 				.then((userCredential) => {
 					const user = userCredential.user;
+					//console.log(userCredential.user);
 					dispatch(login());
 					dispatch(loginUser(user.uid));
+					
+					window.localStorage.setItem("uuid", `${(user.uid)}}`);
+					window.localStorage.setItem("email", `${JSON.stringify(user.email)}}`);
 
-					const db = getFirestore(app);
-					const dataRef = collection(db, "nicknames");
-					const q = query(dataRef, where("uuid", "==", `${user.uid}`));
-					dispatch(setNickname(q.name));
-					console.log(q.name);
-					history.pushState("/welcome");
+					history.push("/welcome");
 				})
 				.catch((error) => {
 					const errorCode = error.code;
 					const errorMessage = error.message;
-					alert("ERROR");
+					console.log(errorMessage);
 				});
 		},
 	});
