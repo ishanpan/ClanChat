@@ -153,10 +153,11 @@ body {
 	background-color: #1a66ff;
 	margin: 1.5rem;
 	min-height: 2.5rem;
-	min-width: 2rem;
+	min-width: 7rem;
 	overflow: hidden;
 	border-radius: 1.5rem;
 	justify-self: start;
+	position: relative;
 }
 
 .chatBubbleText {
@@ -164,7 +165,25 @@ body {
 	text-align: center;
 	font-size: 2rem;
 	min-width: 2rem;
-	margin: 1rem;
+	margin: 1.3rem;
 	margin-left: 1.25rem;
 	margin-right: 1.25rem;
+}
+
+.sender{
+	position: absolute;
+	font-size: 1rem;
+	top: 0.2rem;
+	right: 1rem;
+	margin-bottom: 1rem;
+	
+}
+
+.timeStamp{
+	position: absolute;
+	font-size: 1rem;
+	bottom: 0.2rem;
+	right: 1rem;
+	margin-top: 1.5rem;
+	margin-right: 0.2rem;
 }

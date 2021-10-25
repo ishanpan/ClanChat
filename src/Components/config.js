@@ -27,7 +27,7 @@ export { app };
 and retriving texts. 
 Dyanmically rerender the list -> Done
 5. React routing -> Done 
-6. Add info when logged in and when msg send and by whom with time
+6. Add info when logged in and when msg send and by whom with time 
 7. Add animations
 
 

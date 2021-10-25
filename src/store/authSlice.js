@@ -17,7 +17,6 @@ export const authSlice = createSlice({
 		},
 		loginUser: (state, action) => {
 			state.userInfo = action.payload;
-			console.log(state.userInfo);
 		},
 		setNickname: (state, action) => {
 			state.nickname = action.payload;

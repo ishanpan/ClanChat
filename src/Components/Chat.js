@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, Fragment } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import styles from "./Welcome.module.css";
 
@@ -18,6 +18,8 @@ import { getFirestore } from "firebase/firestore";
 import { css } from "@emotion/react";
 import PacmanLoader from "react-spinners/PacmanLoader";
 
+import { useHistory } from "react-router-dom";
+
 import {
 	addDoc,
 	collection,
@@ -26,7 +28,28 @@ import {
 	onSnapshot,
 } from "firebase/firestore";
 
+import { login, logout, loginUser, setNickname } from "../store/authSlice";
+import { where, getDocs } from "firebase/firestore";
+
 const Chat = (props) => {
+	const db = getFirestore(app);
+	let history = useHistory();
+	const dispatch = useDispatch();
+	const [nicknames, setNicknames] = useState("");
+	let logg = useSelector((state) => state.auth.userInfo);
+	const nick = useSelector((state) => state.auth.nickname);
+	useEffect(() => {
+		if (localStorage.length >= 1 && nick == "") {
+			history.push("/welcome");
+		} else if (localStorage.length <= 1) {
+			history.push("/signin");
+		} else {
+			const details = window.localStorage.getItem("uuid");
+			const slice = details.slice(0, -1);
+			dispatch(loginUser(slice));
+		}
+	}, []);
+
 	const [data, setData] = useState([{}]);
 	const [load, setLoad] = useState(0);
 	const messageRef = useRef();
@@ -42,7 +65,18 @@ const Chat = (props) => {
 		left: 50%;
 		transform: translate(-50%, -60%);
 	`;
-	let logg = useSelector((state) => state.auth.userInfo);
+	/*useEffect(() => {
+		const dataRef = collection(db, "nicknames");
+		const q = query(dataRef, where("uuid", "==", `${logg}`));
+		const a = async () => {
+			const querySnapshot = await getDocs(q);
+			querySnapshot.forEach((doc) => {
+				// doc.data() is never undefined for query doc snapshots
+				setNicknames(doc.data().name);
+			});
+		};
+		console.log(nicknames);
+	}, []);*/
 	useEffect(() => {
 		const a = async () => {
 			const q = query(
@@ -54,6 +88,7 @@ const Chat = (props) => {
 				setLoad(1);
 				snapshot.docChanges().forEach((change) => {
 					if (change.type === "added") {
+						//console.log(s);
 						setData((state) => [...state, change.doc.data()]);
 					}
 				});
@@ -75,7 +110,6 @@ const Chat = (props) => {
 
 	//can create a custom hook i think
 	let userData = useSelector((state) => state.auth.userInfo);
-	const db = getFirestore(app);
 	const formik = useFormik({
 		initialValues: {
 			msg: "",
@@ -91,6 +125,7 @@ const Chat = (props) => {
 				await addDoc(collection(db, "chathistory"), {
 					uuid: `${userData}`,
 					msg: `${values.msg}`,
+					nickname: `${nick}`,
 					timestamp: `${t}`,
 				});
 			}
@@ -129,6 +164,11 @@ const Chat = (props) => {
 										}}
 									>
 										<p className={styles.chatBubbleText}>{text.msg}</p>
+										<div className={styles.sender}>~{text.nickname}</div>
+										<div className={styles.timeStamp}>
+											{new Date(+text.timestamp).getHours()}:
+											{new Date(+text.timestamp).getMinutes()}
+										</div>
 									</li>
 								))}
 						</ul>

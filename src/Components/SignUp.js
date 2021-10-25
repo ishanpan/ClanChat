@@ -8,6 +8,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { login, logout, loginUser } from "../store/authSlice";
 import { useHistory } from "react-router-dom";
 
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Link,
+	useRouteMatch,
+	useParams,
+} from "react-router-dom";
+
 const SignUp = () => {
 	const auth = getAuth();
 	let history = useHistory();
@@ -37,7 +46,7 @@ const SignUp = () => {
 					//Create a store and save this in local browser storage
 					// ...
 					dispatch(login());
-          			dispatch(loginUser(user.uid));
+					dispatch(loginUser(user.uid));
 					history.push("/nickname");
 				})
 				.catch((error) => {
@@ -84,7 +93,10 @@ const SignUp = () => {
 						</button>
 					</div>
 					<div className={styles.login}>
-						Already Have An Account? <a href="#">Sign In</a>
+						Already Have An Account?
+						<Link Link to="/signin">
+							<button>Sign In</button>
+						</Link>
 					</div>
 				</div>
 			</form>

@@ -9,6 +9,14 @@ import { useHistory } from "react-router-dom";
 import { collection, query, where } from "firebase/firestore";
 import { app } from "./config";
 import { getFirestore } from "firebase/firestore";
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Link,
+	useRouteMatch,
+	useParams,
+} from "react-router-dom";
 
 const SignIn = () => {
 	const dispatch = useDispatch();
@@ -36,9 +44,12 @@ const SignIn = () => {
 					//console.log(userCredential.user);
 					dispatch(login());
 					dispatch(loginUser(user.uid));
-					
-					window.localStorage.setItem("uuid", `${(user.uid)}}`);
-					window.localStorage.setItem("email", `${JSON.stringify(user.email)}}`);
+
+					window.localStorage.setItem("uuid", `${user.uid}}`);
+					window.localStorage.setItem(
+						"email",
+						`${JSON.stringify(user.email)}}`
+					);
 
 					history.push("/welcome");
 				})
@@ -84,7 +95,12 @@ const SignIn = () => {
 							Log In
 						</button>
 					</div>
-					<div className={styles.login}>Don't Have An Account? Sign Up</div>
+					<div className={styles.login}>
+						Don't Have An Account?{" "}
+						<Link Link to="/signup">
+							<button>Sign Up</button>
+						</Link>
+					</div>
 				</div>
 			</form>
 		</div>
