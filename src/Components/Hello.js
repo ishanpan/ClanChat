@@ -7,7 +7,7 @@ import { app } from "./config";
 import { getFirestore } from "firebase/firestore";
 import { useHistory } from "react-router-dom";
 
-import { login, logout, loginUser, setNickname } from "../store/authSlice";
+import {setNickname } from "../store/authSlice";
 
 const Hello = (props) => {
 	const [name, setName] = useState("");
@@ -40,7 +40,6 @@ const Hello = (props) => {
 	
 	useEffect(() => {
 		dispatch(setNickname(name));
-		console.log(name);
 	}, [name]);
 
 	

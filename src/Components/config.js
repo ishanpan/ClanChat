@@ -20,21 +20,10 @@ const app = initializeApp(firebaseConfig);
 
 export { app };
 
-/*1. set firestore to send data to firestore. start with nickname -> Done
-2. Design UI For Chatting -> Done
-3. Design DB structure  -> Done
-4. Implement sending text -> Done
-and retriving texts. 
-Dyanmically rerender the list -> Done
-5. React routing -> Done 
-6. Add info when logged in and when msg send and by whom with time 
-7. Add animations
-
-
-
-
-NOTES-> Encrypted chats would be fun.
-        One on One or Group??? Will have to think this.
-        Could use home UI for welcoming user  -> Done
-        Settings icon for changing password.
-		*/
+/*
+TO_DO
+1) Add animations
+2) Add CSS finishing touch
+3) Testing
+4) Deployment
+*/
