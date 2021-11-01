@@ -26,7 +26,6 @@ const Name = () => {
 					name: `${values.name}`,
 					uuid: userData,
 				});
-				console.log("HELLO");
 				history.push("/welcome");
 			}
 			name();
