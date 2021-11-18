@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  font-size: 62.5%;
+}
+
+.screen {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+  background-color: #022f40;
+}
+
+.formlabin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+.textE {
+  font-size: 2.5rem;
+  color: white;
+  padding: 2rem;
+}
+.forminput {
+  height: 4rem;
+  width: 30%;
+  border-radius: 1.5rem;
+  margin-bottom: 2rem;
+  line-height: 0;
+  font-size: 2rem;
+  text-indent: 1rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.submitbtn {
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  background-color: lightcoral;
+  color: #fff;
+  height: 4.5rem;
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  border-radius: 2rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.submitbtntext {
+  font-size: 2rem;
+  font-family: Karla;
+  font-style: normal;
+  font-weight: bold;
+}

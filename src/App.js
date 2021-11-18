@@ -8,32 +8,36 @@ import Name from "./Components/Name";
 import Chat from "./Components/Chat";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Password from "./Components/Password";
 
 function App() {
-	let logg = useSelector((state) => state.auth.userInfo);
-	return (
-		<Router>
-			<Switch>
-				<Route path="/signup">
-					<SignUp />
-				</Route>
-				<Route path="/nickname">
-					<Name />
-				</Route>
-				<Route path="/signin">
-					<SignIn />
-				</Route>
-				<Route path="/welcome">
-					<Hello />
-				</Route>
-				<Route path="/chat">
-					<Chat />
-				</Route>
-				<Route path="">
-					<SignUp></SignUp>
-				</Route>
-			</Switch>
-		</Router>
-	);
+  let logg = useSelector((state) => state.auth.userInfo);
+  return (
+    <Router>
+      <Switch>
+        <Route path="/signup">
+          <SignUp />
+        </Route>
+        <Route path="/nickname">
+          <Name />
+        </Route>
+        <Route path="/signin">
+          <SignIn />
+        </Route>
+        <Route path="/welcome">
+          <Hello />
+        </Route>
+        <Route path="/chat">
+          <Chat />
+        </Route>
+        <Route path="/reset">
+          <Password></Password>
+        </Route>
+        <Route path="">
+          <SignUp></SignUp>
+        </Route>
+      </Switch>
+    </Router>
+  );
 }
 export default App;
