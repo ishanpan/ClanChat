@@ -5,7 +5,7 @@ import styles from "./reset.module.css";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import Sidenav from "./Sidenav";
 import { useHistory } from "react-router-dom";
-
+//Need to work on something
 const Password = () => {
   let history = useHistory();
   if (localStorage.length <= 1) {
