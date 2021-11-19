@@ -140,12 +140,12 @@ const SignUp = () => {
                 <Box
                   color="white"
                   p={3}
-                  bg="green.500"
+                  bg="red.500"
                   fontSize="large"
                   borderRadius="3"
                   textAlign="center"
                 >
-                  E-Mail already in use!
+                  -Mail already in use!E
                 </Box>
               ),
             })}

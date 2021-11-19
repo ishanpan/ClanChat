@@ -1,16 +1,20 @@
 import { useFormik } from "formik";
-import { Fragment } from "react";
+import { Fragment, useState, useEffect } from "react";
 import * as Yup from "yup";
 import styles from "./reset.module.css";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import Sidenav from "./Sidenav";
 import { useHistory } from "react-router-dom";
-//Need to work on something
+import { useToast, Box } from "@chakra-ui/react";
+
 const Password = () => {
   let history = useHistory();
+  const toast = useToast();
+  const [error, setError] = useState(false);
   if (localStorage.length <= 1) {
     history.push("/signin");
   }
+  const [emailsent, setEmailsent] = useState(false);
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -24,13 +28,23 @@ const Password = () => {
       console.log(values.email);
       const auth = getAuth();
       sendPasswordResetEmail(auth, values.email)
-        .then(() => {})
+        .then(() => {
+          setEmailsent(true);
+        })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
+          setError(true);
         });
     },
   });
+  useEffect(() => {
+    setError(false);
+  }, [error]);
+
+  useEffect(() => {
+    setEmailsent(false);
+  }, [emailsent]);
 
   return (
     <Fragment>
@@ -58,6 +72,38 @@ const Password = () => {
           </div>
         </form>
       </div>
+      {emailsent &&
+        toast({
+          position: "top",
+          render: () => (
+            <Box
+              color="white"
+              p={3}
+              bg="green.500"
+              fontSize="large"
+              borderRadius="3"
+              textAlign="center"
+            >
+              Check your inbox for the provided email
+            </Box>
+          ),
+        })}
+      {error &&
+        toast({
+          position: "top",
+          render: () => (
+            <Box
+              color="white"
+              p={3}
+              bg="red.500"
+              fontSize="large"
+              borderRadius="3"
+              textAlign="center"
+            >
+              Error occurred!
+            </Box>
+          ),
+        })}
     </Fragment>
   );
 };

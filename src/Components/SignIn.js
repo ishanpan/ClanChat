@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import styles from "./SignUp.module.css";
@@ -11,6 +11,8 @@ import { app } from "./config";
 import { getFirestore } from "firebase/firestore";
 
 import { useToast, Box } from "@chakra-ui/react";
+import { CircularProgress } from "@chakra-ui/progress";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,6 +23,10 @@ import {
 } from "react-router-dom";
 
 const SignIn = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const toast = useToast();
+
   const dispatch = useDispatch();
   let history = useHistory();
   let userData = useSelector((state) => state.auth.userInfo);
@@ -40,6 +46,7 @@ const SignIn = () => {
         .required("Incomplete form"),
     }),
     onSubmit: (values) => {
+      setLoading(true);
       signInWithEmailAndPassword(auth, values.email, values.password)
         .then((userCredential) => {
           const user = userCredential.user;
@@ -58,10 +65,15 @@ const SignIn = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
+          setLoading(false);
+          setError(true);
           console.log(errorMessage);
         });
     },
   });
+  useEffect(() => {
+    setError(false);
+  }, [error]);
   return (
     <div className={styles.form}>
       <form className={styles.inputs} onSubmit={formik.handleSubmit}>
@@ -92,11 +104,25 @@ const SignIn = () => {
           />
         </div>
         <div className={styles.formlabin}>
-          <div className={styles.submitbtn}>
-            <button className={styles.submitbtntext} type="submit">
-              Log In
-            </button>
-          </div>
+          {loading && (
+            <div className={styles.submitbtn}>
+              <button className={styles.submitbtntext} type="submit"></button>
+              <CircularProgress
+                isIndeterminate
+                color="green.300"
+                thickness="12px"
+                capIsRound
+              />
+            </div>
+          )}
+          {!loading && (
+            <div className={styles.submitbtn}>
+              <button className={styles.submitbtntext} type="submit">
+                Log In
+              </button>
+            </div>
+          )}
+
           <div className={styles.login}>
             Don't Have An Account?{" "}
             <Link Link to="/signup">
@@ -105,6 +131,22 @@ const SignIn = () => {
           </div>
         </div>
       </form>
+      {error &&
+        toast({
+          position: "top",
+          render: () => (
+            <Box
+              color="white"
+              p={3}
+              bg="red.500"
+              fontSize="large"
+              borderRadius="3"
+              textAlign="center"
+            >
+              Invalid credentials or user doesn't exist!
+            </Box>
+          ),
+        })}
     </div>
   );
 };

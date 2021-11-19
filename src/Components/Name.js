@@ -17,7 +17,8 @@ const Name = () => {
     }
   }, []);
 
-  let userData = useSelector((state) => state.auth.userInfo);
+  let details = window.localStorage.getItem("uuid");
+  const userData = details.slice(0, -1);
   let history = useHistory();
   const db = getFirestore(app);
   const formik = useFormik({
