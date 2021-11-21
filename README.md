@@ -35,4 +35,4 @@ Deployed on
 
 
 ## Demo
-![Demo Video]![](https://media.giphy.com/media/KRicMx4UHJ6dmPim5Y/giphy.gif)
+![](https://media.giphy.com/media/KRicMx4UHJ6dmPim5Y/giphy.gif)
